@@ -1,0 +1,82 @@
+The test cases created without anti-hallucination rules are as below
+
+Functional Test Cases
+TC ID	Requirement / Scenario	Preconditions	Test Steps	Expected Result
+TC_001	Open MFBOT	Test environment is available	1. Open MFBOT	MFBOT opens and displays the welcome message.
+TC_002	Display query selection	MFBOT is opened	1. Observe the initial MFBOT screen	User is asked to select a query/category.
+TC_003	Select System-related query category	Query categories are displayed	1. Select System related	System-related query options are displayed.
+TC_004	Select Application query category	Query categories are displayed	1. Select Application	Application query options are displayed.
+TC_005	Select Insider Trading Compliance category	User is authorized and category is available	1. Select Insider Trading Compliance	Insider Trading Compliance application queries are visible to the authorized user.
+TC_006	Verify Insider Trading visibility restriction	User is not authorized	1. Open query categories 2. Check Insider Trading Compliance options	Insufficient information to determine. The BRD says these queries are visible to authorized users but does not specify the behavior for unauthorized users.
+TC_007	Select a specific query	Query category is displayed	1. Select a query category 2. Select a specific query	The selected query is processed and its solution is displayed.
+TC_008	Display solution for selected query	Specific query is selected	1. Select the required query	Solution for that particular query is displayed on the MFBOT screen.
+TC_009	Display helpfulness question	Solution is displayed	1. View solution screen	“Was it helpful?” with Yes and No options is displayed.
+TC_010	Select Yes for helpful solution	Solution and helpfulness options are displayed	1. Select Yes for “Was it helpful?”	A Thank You message is displayed.
+TC_011	Select No for helpful solution	Solution and helpfulness options are displayed	1. Select No for “Was it helpful?”	User is taken toward the ticket-raising flow.
+TC_012	Display ticket question	Solution is displayed	1. View options displayed with solution	“Do you want to Raise a ticket?” with Yes and No options is displayed.
+TC_013	Raise ticket after unsuccessful self-help	Solution is not helpful	1. Select No for helpfulness 2. Choose the ticket-raising option	User can proceed to raise a ticket.
+TC_014	SAP code and password requirement	User has selected ticket raising	1. Proceed with ticket raising	User is required to enter SAP code and password.
+TC_015	Display ticket parameters	SAP code/password step has been completed	1. Continue with ticket raising	List of parameters required to raise a ticket is displayed.
+TC_016	Enter ticket information	Ticket parameters are displayed	1. Enter the required ticket details	The entered information can be submitted for ticket processing.
+TC_017	Pass ticket information to Felicity	Ticket information has been entered	1. Submit ticket information	Information is passed to the Felicity portal.
+TC_018	Display generated ticket number	Ticket is successfully raised	1. Complete ticket-raising process	MFBOT displays the ticket number generated for the raised ticket.
+TC_019	End-to-end successful self-help flow	MFBOT available	1. Open MFBOT 2. Select category 3. Select query 4. View solution 5. Select Yes for helpfulness	Solution is displayed and a Thank You message is displayed.
+TC_020	End-to-end ticket flow	MFBOT available and ticket data available	1. Open MFBOT 2. Select category 3. Select query 4. View solution 5. Select No for helpfulness 6. Proceed with ticket 7. Enter SAP code/password 8. Enter ticket parameters 9. Submit	Ticket information is passed to Felicity and generated ticket number is displayed on MFBOT
+
+========================================================================================================================================================================================================================================================================================================================================================================
+
+
+The Test cases after i provided anti-hallucination rules along with the missing facts are below
+
+
+Generated Output — Test Cases
+
+Common precondition: Test environment is set up, as specified in the BRD entry criteria.
+
+TC ID	Test Scenario	Test Steps	Expected Result	Priority
+TC001	Launch MFBOT	1. Open MFBOT	Welcome message is displayed and the user is asked to select a query.	High
+TC002	Display query categories	1. Open MFBOT 2. View query-selection options	Query categories/options are displayed. The BRD explicitly identifies System-related, Application, and Insider Trading Compliance query flows.	High
+TC003	Select query category	1. Open MFBOT 2. Select a query category	User can proceed to select a specific query from the displayed options.	High
+TC004	Select specific query	1. Select a query category 2. Select a specific query	The selected query is processed and its solution is displayed.	High
+TC005	Display solution	1. Select a specific query	Solution for the selected query is displayed on the MFBOT screen.	High
+TC006	Verify helpful feedback options	1. Select a query 2. Display its solution	“Was it helpful?” is displayed with Yes and No options.	High
+TC007	Verify helpful response	1. Display a solution 2. Select Yes for “Was it helpful?”	A Thank You message is displayed.	High
+TC008	Verify raise-ticket options	1. Display a solution 2. Check ticket-related options	“Do you want to Raise a ticket?” is displayed with Yes and No options.	High
+TC009	Raise ticket when solution is not helpful	1. Display a solution 2. Select No for “Was it helpful?”	User is provided the ability/path to raise a ticket.	High
+TC010	Verify SAP credentials requirement	1. Choose to raise a ticket	User is required to enter SAP code and password before raising the ticket.	High
+TC011	Display ticket parameters	1. Initiate ticket raising 2. Complete the SAP code/password step	List of parameters required for raising the ticket is displayed.	High
+TC012	Submit ticket information	1. Enter the displayed ticket information 2. Submit the ticket	The information is passed to the Felicity portal.	High
+TC013	Display generated ticket number	1. Successfully raise a ticket	MFBOT displays the ticket number generated for the raised ticket.	High
+TC014	Insider Trading query visibility for authorized user	1. Use an authorized user 2. Open the relevant query category	Insider Trading Compliance application queries are visible to the authorized user.	High
+TC015	Navigate to Outlook proxy query	1. Open MFBOT 2. Select System related 3. Select Configure 4. Select Proxy Address for Mahindra Mail ID	The documented Outlook proxy-address query is available for selection.	High
+TC016	Verify Outlook proxy solution	1. Navigate to the Outlook proxy-address query 2. Select it	The documented solution is displayed, including the specified Outlook navigation and proxy configuration information.	High
+TC017	Verify feedback after Outlook solution	1. Display the Outlook proxy solution	“Was it helpful?” with Yes/No options is displayed after the solution.	High
+TC018	Outlook solution marked helpful	1. Display Outlook proxy solution 2. Select Yes for “Was it helpful?”	A Thank You message is displayed.	High
+TC019	Outlook solution marked not helpful	1. Display Outlook proxy solution 2. Select No for “Was it helpful?”	User can proceed with the ticket-raising flow.	High
+
+===========================================================================================================================================================================
+
+
+The mssing facts are:
+
+The following information is not sufficiently specified, so I have not invented test cases around it:
+
+Exact list of all query categories and individual queries.
+Exact UI design, field labels, buttons, layouts, etc.
+SAP code/password validation rules.
+Invalid SAP code/password behavior.
+Mandatory/optional status of individual ticket parameters.
+Error messages.
+Behavior when ticket submission fails.
+Behavior when the user selects No for “Do you want to Raise a ticket?”
+API details.
+Database details.
+Exact response-time SLA.
+Exact concurrent-user/load limits.
+Security implementation details.
+RTO/RPO values.
+Browser/OS compatibility requirements.
+
+
+
+
