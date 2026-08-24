@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "powershell",
+      "Shell(powershell -Command \"$paths = @('C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe','C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe','C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe','C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'); $paths | Where-Object { Test-Path $_ }\")",
+      "Shell(C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe:*)",
+      "Shell(powershell -Command \"Get-Content 'practice_01/Local LLM example/.gitignore'\")",
+      "Shell(powershell -Command \"Get-Content '.commandcode/settings.json'\")",
+      "Shell(git:*)"
+    ],
+    "deny": [],
+    "defaultMode": "default"
+  }
+}
